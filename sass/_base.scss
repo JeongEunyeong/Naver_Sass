@@ -14,10 +14,10 @@ body {
 
 .header {
     background-color: pink;
-    /*여기 물어보기
+    /*
     @include boxFull(100vw) {
         border: 1px solid #000;
-    };
+    } (이거는 @content; 있어야댐)
     
     /*@include boxFixed;
     @include sm {
