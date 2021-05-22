@@ -17,9 +17,10 @@ body {
     /*
     @include boxFull(100vw) {
         border: 1px solid #000;
-    } (이거는 @content; 있어야댐)
+    } ({}안에 내용 쓰려면 @content; 있어야 적용됨)
     
-    /*@include boxFixed;
+    @include boxFixed;
+
     @include sm {
         background-color: lime;
     }
