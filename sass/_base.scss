@@ -1,3 +1,9 @@
+//숨김컨텐츠
+.a11yHidden {
+    @include a11yHidden;
+}
+
+//모든 컨텐츠에 clearfix 처럼 초기화 처리 비슷한거 하는것
 body *,
 body *::before,
 body *::after {

@@ -33,3 +33,34 @@
     flex-grow: 1;
     /*flex-grow꺼 검색해보기*/
 }
+
+//로그인폼
+.loginForm {
+    legend {
+        @include a11yHidden;
+    }
+    .formControl {
+        & {
+            width: 100%;
+            border: 1px solid $silverLight;
+            margin: 5px auto;
+        }
+        &:focus-within {
+            border-color: $green;
+        }
+        &__input {
+            height: em(45px);
+            padding: 15px;
+        }
+        &__button {
+            width: 100%;
+            height: em(55px);
+            background-color: $green;
+            color: $white;
+            font-weight: bold;
+        }
+    }
+    .errerMessage {
+        color: $red;
+    }
+}
