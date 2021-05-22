@@ -1,20 +1,40 @@
+body *,
+body *::before,
+body *::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    box-sizing: border-box;
+}
+
+//반응형 이미지
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 body {
     font-family: "Spoqa Han Sans", sans-serif;
     font-weight: 400;
     font-size: rem(16px);
+    background-color: $default;
+    color: $text;
 }
 
+
+/*
 //테스트코드
 .container {
-    /*width: 1000px;
-    @include autoMargin;*/
+    width: 1000px;
+    @include autoMargin;
     @include boxFixed;
     background-color: yellow;
 }
 
 .header {
     background-color: pink;
-    /*
+    
     @include boxFull(100vw) {
         border: 1px solid #000;
     } ({}안에 내용 쓰려면 @content; 있어야 적용됨)
@@ -27,6 +47,7 @@ body {
     @include md {
         background-color: aqua;
     }
-    */
+    
     @include flexbox;
 }
+*/

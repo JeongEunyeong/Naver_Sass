@@ -384,44 +384,106 @@ template {
   font-display: swap;
   src: local("Spoqa Han Sans Thin"), url("../fonts/SpoqaHanSansThin.woff2") format("woff2"), url("../fonts/SpoqaHanSansThin.woff") format("woff");
 }
+body *,
+body *::before,
+body *::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 body {
   font-family: "Spoqa Han Sans", sans-serif;
   font-weight: 400;
   font-size: 1rem;
+  background-color: #fff;
+  color: #000;
 }
 
+/*
+//테스트코드
 .container {
-  /*width: 1000px;
-  @include autoMargin;*/
-  width: 460px;
-  padding-left: 0;
-  padding-right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: yellow;
+    width: 1000px;
+    @include autoMargin;
+    @include boxFixed;
+    background-color: yellow;
 }
 
 .header {
-  background-color: pink;
-  /*
-  @include boxFull(100vw) {
-      border: 1px solid #000;
-  } ({}안에 내용 쓰려면 @content; 있어야 적용됨)
+    background-color: pink;
 
-  @include boxFixed;
+    @include boxFull(100vw) {
+        border: 1px solid #000;
+    } ({}안에 내용 쓰려면 @content; 있어야 적용됨)
 
-  @include sm {
-      background-color: lime;
-  }
-  @include md {
-      background-color: aqua;
-  }
-  */
+    @include boxFixed;
+
+    @include sm {
+        background-color: lime;
+    }
+    @include md {
+        background-color: aqua;
+    }
+
+    @include flexbox;
+}
+*/
+.container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
   flex-wrap: nowrap;
+  min-height: 100vh;
+}
+@media screen and (max-width: 767px) {
+  .container {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    width: 460px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.header__logo {
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (max-width: 767px) {
+  .header__logo {
+    width: 51.25%;
+    margin-top: 4.375em;
+    margin-bottom: 2.8125em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .header__logo {
+    width: 230px;
+    margin-top: 6.25em;
+    margin-bottom: 3.125em;
+  }
+}
+
+.main {
+  flex-grow: 1;
+  /*flex-grow꺼 검색해보기*/
 }
 
 /*# sourceMappingURL=style.css.map */

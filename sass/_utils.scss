@@ -45,6 +45,7 @@ $breakpoint:768px;
 }
 
 //요소박스 크기 고정
+//width값을 100%로 바꾸면 유동적인~
 @mixin boxFixed($width:460px, $paddingX:0) {
     width: $width;
     padding-left: $paddingX;
