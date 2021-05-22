@@ -3,3 +3,29 @@ body {
     font-weight: 400;
     font-size: rem(16px);
 }
+
+//테스트코드
+.container {
+    /*width: 1000px;
+    @include autoMargin;*/
+    @include boxFixed;
+    background-color: yellow;
+}
+
+.header {
+    background-color: pink;
+    /*여기 물어보기
+    @include boxFull(100vw) {
+        border: 1px solid #000;
+    };
+    
+    /*@include boxFixed;
+    @include sm {
+        background-color: lime;
+    }
+    @include md {
+        background-color: aqua;
+    }
+    */
+    @include flexbox;
+}

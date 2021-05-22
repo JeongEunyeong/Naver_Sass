@@ -1,5 +1,7 @@
+//1.
 // 루트 요소 기본 단위
 $rootUnit: 16px !default;
+$breakpoint:768px;
 // 단위 제거 함수
 @function removeUnit($value) {
     @return ($value/($value * 0 + 1));
@@ -13,4 +15,62 @@ $rootUnit: 16px !default;
 // px을 em 단위로 변경하는 함수
 @function em($value, $base:$rootUnit) {
     @return removeUnit($value/$base) * 1em;
+}
+
+//2.믹스인
+//float 해제를 위한 함수
+@mixin clearfix {
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+//margin 자동 auto 처리 관련
+@mixin autoMargin($marginX: auto) {
+    margin-left: $marginX;
+    margin-right: $marginX;
+}
+
+//요소박스 가로크기를 뷰포트 기준 100vw로 설정
+//vw : viewport width
+// width: 100vw로 인해 body 영역에 가로 스크롤바가 나타난다.
+// 이를 해결하기 위해 루트 요소인 html에 overflow-x: hidden;을 추가해야 함
+@mixin boxFull ($width:100vw) {
+    width: $width;
+    position: relative;
+    left: 50%;
+    margin-left: -$width / 2;
+}
+
+//요소박스 크기 고정
+@mixin boxFixed($width:460px, $paddingX:0) {
+    width: $width;
+    padding-left: $paddingX;
+    padding-right: $paddingX;
+    @include autoMargin;
+    @content;
+}
+
+//미디어media query
+@mixin sm {
+    @media screen and (max-width: $breakpoint - 1) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media screen and (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+//플렉스 박스 믹스인
+@mixin flexbox ($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
 }
