@@ -80,6 +80,9 @@
     legend {
         @include a11yHidden;
     }
+    &__container {
+        @include flexbox(column);
+    }
 }
 
 .userEmail,
@@ -105,7 +108,7 @@
     }
 }
 
-//에러메세지
+//내용 없을 때 나오는 에러메세지
 .errorMessage {
     color: $warning;
     display: none;
@@ -113,4 +116,93 @@
 
 .is--invalid .errorMessage {
     display: block;
+}
+
+
+/*만들어보기2
+
+.userSelectInfo {
+    .loginState {
+        float: left;
+    }
+    .ipSecurityLink,
+    .ipSecurity {
+        float: right;
+    }
+    .ipSecurityLink {
+        margin-left: auto;
+    }
+    display:block;
+    width: 100%;
+    height: em(25px);
+    line-height: em(25px);
+    margin-top: 10px;
+    background-color: yellow;
+}
+
+.buttonLogin {
+    @include clearfix;
+    margin-top: 10px;
+    width: 100%;
+    height: em(55px);
+    background-color: $primary;
+    color: $default;
+    font-weight: bold;
+}
+*/
+
+//로그인 상태유지 및 IP 보안
+.userSelectInfo {
+    order: 1;
+    @include flexbox;
+}
+
+//IP보안 링크 위치 변경
+//margin-left: auto = IP보안 링크 위치 변경
+.ipSecurityLink {
+    margin-left: auto;
+    text-decoration: none;
+    color: inherit
+}
+
+//IP보안 체크박스
+.ipSecurity {
+    //체크박스input
+    &Checkbox {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+    }
+    //체크박스label
+    &Label::before {
+        display: inline-block;
+        width: em(36px);
+        padding: 0 em(4px);
+        content: "OFF";
+        font-weight: 700;
+        margin-left: em(8px);
+        color: $secondary;
+    }
+    &Checkbox:checked+&Label::before {
+        content: "ON";
+        color: $primary;
+    }
+    &Checkbox:focus+&Label::before {
+        box-shadow: 0 0 0 2px $outline;
+        border-radius: 2px;
+    }
+}
+
+//로그인버튼
+.loginButton {
+    margin: em(10px) 0;
+    background-color: $primary;
+    color: $default;
+    .formControl__button {
+        background-color: inherit;
+        color: inherit;
+        width: 100%;
+        padding: em(19px) em(16px);
+    }
 }

@@ -544,6 +544,13 @@ body {
   height: 1px;
   margin: -1px;
 }
+.loginForm__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+}
 
 .userEmail,
 .userPassword {
@@ -573,6 +580,88 @@ body {
 
 .is--invalid .errorMessage {
   display: block;
+}
+
+/*만들어보기2
+
+.userSelectInfo {
+    .loginState {
+        float: left;
+    }
+    .ipSecurityLink,
+    .ipSecurity {
+        float: right;
+    }
+    .ipSecurityLink {
+        margin-left: auto;
+    }
+    display:block;
+    width: 100%;
+    height: em(25px);
+    line-height: em(25px);
+    margin-top: 10px;
+    background-color: yellow;
+}
+
+.buttonLogin {
+    @include clearfix;
+    margin-top: 10px;
+    width: 100%;
+    height: em(55px);
+    background-color: $primary;
+    color: $default;
+    font-weight: bold;
+}
+*/
+.userSelectInfo {
+  order: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: nowrap;
+}
+
+.ipSecurityLink {
+  margin-left: auto;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ipSecurityCheckbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.ipSecurityLabel::before {
+  display: inline-block;
+  width: 2.25em;
+  padding: 0 0.25em;
+  content: "OFF";
+  font-weight: 700;
+  margin-left: 0.5em;
+  color: #dadada;
+}
+.ipSecurityCheckbox:checked + .ipSecurityLabel::before {
+  content: "ON";
+  color: #03CF5D;
+}
+.ipSecurityCheckbox:focus + .ipSecurityLabel::before {
+  box-shadow: 0 0 0 2px #24388d;
+  border-radius: 2px;
+}
+
+.loginButton {
+  margin: 0.625em 0;
+  background-color: #03CF5D;
+  color: #fff;
+}
+.loginButton .formControl__button {
+  background-color: inherit;
+  color: inherit;
+  width: 100%;
+  padding: 1.1875em 1em;
 }
 
 /*# sourceMappingURL=style.css.map */
