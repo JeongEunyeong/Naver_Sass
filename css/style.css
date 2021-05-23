@@ -476,6 +476,9 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.header__logo a {
+  display: block;
+}
 @media screen and (max-width: 767px) {
   .header__logo {
     width: 51.25%;
@@ -535,6 +538,15 @@ body {
     }
 }
 */
+:focus {
+  outline: 0;
+}
+
+:focus-visible {
+  box-shadow: 0 0 0 2px #24388d;
+  border-radius: 2px;
+}
+
 .loginForm legend {
   overflow: hidden;
   position: absolute !important;
@@ -571,6 +583,9 @@ body {
 .formControl__input:focus {
   outline: 0;
   background-color: rgba(0, 0, 0, 0.1);
+}
+.formControl__input:focus-visible {
+  box-shadow: none;
 }
 
 .errorMessage {
@@ -622,19 +637,50 @@ body {
   flex-wrap: nowrap;
 }
 
+.loginState__checkbox {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  opacity: 0;
+}
+.loginState__label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  cursor: pointer;
+}
+.loginState__label::before {
+  content: "";
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  background: url(./../images/checked.svg) no-repeat;
+  background-size: 100% 100%;
+  margin-right: 0.3125em;
+}
+.loginState__checkbox:checked + .loginState__label::before {
+  background-image: url(./../images/unchecked.svg);
+}
+.loginState__checkbox:focus + .loginState__label::before {
+  box-shadow: 0 0 0 2px #24388d;
+  border-radius: 2px;
+}
+
 .ipSecurityLink {
   margin-left: auto;
   text-decoration: none;
   color: inherit;
 }
 
-.ipSecurityCheckbox {
+.ipSecurity__checkbox {
   position: absolute;
   width: 1px;
   height: 1px;
   opacity: 0;
 }
-.ipSecurityLabel::before {
+.ipSecurity__label::before {
   display: inline-block;
   width: 2.25em;
   padding: 0 0.25em;
@@ -643,11 +689,11 @@ body {
   margin-left: 0.5em;
   color: #dadada;
 }
-.ipSecurityCheckbox:checked + .ipSecurityLabel::before {
+.ipSecurity__checkbox:checked + .ipSecurity__label::before {
   content: "ON";
   color: #03CF5D;
 }
-.ipSecurityCheckbox:focus + .ipSecurityLabel::before {
+.ipSecurity__checkbox:focus + .ipSecurity__label::before {
   box-shadow: 0 0 0 2px #24388d;
   border-radius: 2px;
 }
@@ -662,6 +708,8 @@ body {
   color: inherit;
   width: 100%;
   padding: 1.1875em 1em;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

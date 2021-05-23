@@ -14,6 +14,9 @@
 //헤더
 .header {
     &__logo {
+        a {
+            display: block;
+        }
         @include autoMargin;
         @include sm {
             width: percentage(164px / 320px);
@@ -76,6 +79,16 @@
 }
 */
 
+//아웃라인 재설정
+:focus {
+    outline: 0;
+}
+
+:focus-visible {
+    @include customOutline;
+}
+
+//로그인폼
 .loginForm {
     legend {
         @include a11yHidden;
@@ -98,6 +111,7 @@
             border-color: $primary;
         }
     }
+    //아이디 및 비밀번호 입력서식
     &__input {
         width: 100%;
         padding: em(5px);
@@ -105,6 +119,9 @@
             outline: 0;
             background-color: $alpha;
         }
+    }
+    &__input:focus-visible {
+        box-shadow: none;
     }
 }
 
@@ -157,7 +174,38 @@
     @include flexbox;
 }
 
-//IP보안 링크 위치 변경
+//로그인 상태유지
+.loginState {
+    //로그인 상태유지 input
+    &__checkbox {
+        position: absolute;
+        height: 1px;
+        width: 1px;
+        opacity: 0;
+    }
+    &__label {
+        @include flexbox(row, flex-start, center);
+        cursor: pointer;
+    }
+    //로그인 상태유지 label
+    &__label::before {
+        content: "";
+        display: inline-block;
+        width: em(20px);
+        height: em(20px);
+        background: url(./../images/checked.svg) no-repeat;
+        background-size: 100% 100%;
+        margin-right: em(5px);
+    }
+    &__checkbox:checked+&__label::before {
+        background-image: url(./../images/unchecked.svg);
+    }
+    &__checkbox:focus+&__label::before {
+        @include customOutline;
+    }
+}
+
+//IP보안 링크
 //margin-left: auto = IP보안 링크 위치 변경
 .ipSecurityLink {
     margin-left: auto;
@@ -168,14 +216,14 @@
 //IP보안 체크박스
 .ipSecurity {
     //체크박스input
-    &Checkbox {
+    &__checkbox {
         position: absolute;
         width: 1px;
         height: 1px;
         opacity: 0;
     }
     //체크박스label
-    &Label::before {
+    &__label::before {
         display: inline-block;
         width: em(36px);
         padding: 0 em(4px);
@@ -184,13 +232,12 @@
         margin-left: em(8px);
         color: $secondary;
     }
-    &Checkbox:checked+&Label::before {
+    &__checkbox:checked+&__label::before {
         content: "ON";
         color: $primary;
     }
-    &Checkbox:focus+&Label::before {
-        box-shadow: 0 0 0 2px $outline;
-        border-radius: 2px;
+    &__checkbox:focus+&__label::before {
+        @include customOutline;
     }
 }
 
@@ -204,5 +251,7 @@
         color: inherit;
         width: 100%;
         padding: em(19px) em(16px);
+        font-weight: bold;
+        cursor: pointer;
     }
 }
