@@ -496,6 +496,45 @@ body {
   /*flex-grow꺼 검색해보기*/
 }
 
+/*만들어보기
+.loginForm {
+    legend {
+        @include a11yHidden;
+    }
+    .userEmail,
+    .userPassword {
+        margin-bottom: em(10px);
+        .formControl {
+            height: em(45px);
+            border: 1px solid $silverLight;
+            &:focus-within {
+                border-color: $primary;
+            }
+            &__input {
+                width: 100%;
+                padding: em(5px) 0;
+                margin: em(7px) auto;
+            }
+            &__input:focus {
+                background-color: $alpha;
+                outline: 0;
+            }
+        }
+    }
+    .errerMessage {
+        color: $warning;
+    }
+    .formControl {
+        &__button {
+            width: 100%;
+            height: em(55px);
+            background-color: $primary;
+            color: $default;
+            font-weight: bold;
+        }
+    }
+}
+*/
 .loginForm legend {
   overflow: hidden;
   position: absolute !important;
@@ -505,27 +544,35 @@ body {
   height: 1px;
   margin: -1px;
 }
-.loginForm .formControl {
-  width: 100%;
-  border: 1px solid #dadada;
-  margin: 5px auto;
+
+.userEmail,
+.userPassword {
+  margin-bottom: 0.625em;
 }
-.loginForm .formControl:focus-within {
+
+.formControlUser {
+  border: 1px solid #dadada;
+  padding: 0.5625em;
+}
+.formControlUser:focus-within {
   border-color: #03CF5D;
 }
-.loginForm .formControl__input {
-  height: 2.8125em;
-  padding: 15px;
-}
-.loginForm .formControl__button {
+.formControl__input {
   width: 100%;
-  height: 3.4375em;
-  background-color: #03CF5D;
-  color: #fff;
-  font-weight: bold;
+  padding: 0.3125em;
 }
-.loginForm .errerMessage {
+.formControl__input:focus {
+  outline: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.errorMessage {
   color: #ff1414;
+  display: none;
+}
+
+.is--invalid .errorMessage {
+  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -35,32 +35,82 @@
 }
 
 //로그인폼
+
+/*만들어보기
 .loginForm {
     legend {
         @include a11yHidden;
     }
-    .formControl {
-        & {
-            width: 100%;
-            border: 1px solid $silverLight;
-            margin: 5px auto;
-        }
-        &:focus-within {
-            border-color: $green;
-        }
-        &__input {
+    .userEmail,
+    .userPassword {
+        margin-bottom: em(10px);
+        .formControl {
             height: em(45px);
-            padding: 15px;
-        }
-        &__button {
-            width: 100%;
-            height: em(55px);
-            background-color: $green;
-            color: $white;
-            font-weight: bold;
+            border: 1px solid $silverLight;
+            &:focus-within {
+                border-color: $primary;
+            }
+            &__input {
+                width: 100%;
+                padding: em(5px) 0;
+                margin: em(7px) auto;
+            }
+            &__input:focus {
+                background-color: $alpha;
+                outline: 0;
+            }
         }
     }
     .errerMessage {
-        color: $red;
+        color: $warning;
     }
+    .formControl {
+        &__button {
+            width: 100%;
+            height: em(55px);
+            background-color: $primary;
+            color: $default;
+            font-weight: bold;
+        }
+    }
+}
+*/
+
+.loginForm {
+    legend {
+        @include a11yHidden;
+    }
+}
+
+.userEmail,
+.userPassword {
+    margin-bottom: em(10px);
+}
+
+.formControl {
+    &User {
+        border: 1px solid $secondary;
+        padding: em(9px);
+        &:focus-within {
+            border-color: $primary;
+        }
+    }
+    &__input {
+        width: 100%;
+        padding: em(5px);
+        &:focus {
+            outline: 0;
+            background-color: $alpha;
+        }
+    }
+}
+
+//에러메세지
+.errorMessage {
+    color: $warning;
+    display: none;
+}
+
+.is--invalid .errorMessage {
+    display: block;
 }
